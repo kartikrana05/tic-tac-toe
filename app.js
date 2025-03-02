@@ -55,7 +55,9 @@ const draw=()=>{
 }
  
 const checkWinner=()=>{
+    let winnerFound=false
     for(pattern of winPatterns){
+
         // console.log(pattern[0],pattern[1],pattern[2]);
         let pos1val=boxes[pattern[0]].innerText;
         let pos2val=boxes[pattern[1]].innerText;
@@ -64,13 +66,21 @@ const checkWinner=()=>{
             if(pos1val===pos2val && pos2val===pos3val){
                 console.log("Winner Player",pos1val);
                 showWinner(pos1val);
+                winnerFound=true;
+                break;
             }
-            else if(count==9){
-                console.log("It's a Draw!");
-                draw();
-            }
+          
+           
         } 
+        
     }
+    console.log("Count",count);
+    console.log("Winner Found",winnerFound);
+    if (!winnerFound && count === 9) {
+        console.log("It's a Draw!");
+        draw();
+    }
+   
 };
 newGame.addEventListener("click",resetGame);
 resetBtn.addEventListener("click",resetGame);
