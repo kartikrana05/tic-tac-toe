@@ -41,7 +41,7 @@ boxes.forEach((box)=>{
             turnO=false;
         }
         else{
-            box.innerText="X";
+            box.innerText="XX";
             turnO=true;
         }
         box.disabled= true;
